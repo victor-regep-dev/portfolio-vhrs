@@ -28,7 +28,7 @@ export function Header({ lang, t }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > 20);
+    setScrolled(window.scrollY > 5);
   }, []);
 
   useEffect(() => {

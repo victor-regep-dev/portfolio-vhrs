@@ -28,7 +28,7 @@ export function CaseStudyTemplate({ lang, t, projectKey, imageSrc }: CaseStudyTe
   const isPt = lang === 'pt';
 
   return (
-    <article className="min-h-screen bg-brand-black pt-24 pb-16">
+    <article className="min-h-screen bg-brand-black pt-32 lg:pt-40 pb-16">
       {/* Background elements */}
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-30" aria-hidden />
       <div

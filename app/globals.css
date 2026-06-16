@@ -92,8 +92,8 @@ h1, h2, h3, h4, h5, h6 {
   --shadow-glow-sm: 0 0 15px rgba(138, 43, 255, 0.25);
   --shadow-glow-md: 0 0 30px rgba(138, 43, 255, 0.3);
   --shadow-glow-lg: 0 0 60px rgba(138, 43, 255, 0.35);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(138, 43, 255, 0.15);
-  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(168, 85, 247, 0.4), 0 0 30px rgba(138, 43, 255, 0.2);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(138, 43, 255, 0.03);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(168, 85, 247, 0.2), 0 0 30px rgba(138, 43, 255, 0.15);
 
   --radius-card: 16px;
   --radius-badge: 999px;
@@ -130,8 +130,8 @@ h1, h2, h3, h4, h5, h6 {
    GLOW CARD
    ============================================================ */
 .glow-card {
-  background: rgba(15, 15, 26, 0.8);
-  border: 1px solid rgba(138, 43, 255, 0.2);
+  background: rgba(15, 15, 26, 0.5);
+  border: 1px solid transparent;
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   transition: all 0.3s ease;

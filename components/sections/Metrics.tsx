@@ -51,7 +51,7 @@ export function Metrics({ lang, t }: MetricsProps) {
     <section
       id="metricas"
       aria-label={lang === 'pt' ? 'Métricas e experiência' : 'Metrics and experience'}
-      className="relative border-y border-brand-border bg-brand-graphite py-8 overflow-hidden"
+      className="relative bg-brand-graphite py-8 overflow-hidden"
     >
       {/* Subtle background glow */}
       <div className="pointer-events-none absolute inset-0 bg-purple-glow opacity-20" aria-hidden />
@@ -65,22 +65,22 @@ export function Metrics({ lang, t }: MetricsProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="group flex flex-col items-center md:items-start gap-2 p-4 rounded-xl border border-brand-border bg-brand-card/50 hover:border-brand-border-hover hover:bg-brand-card transition-all duration-300"
+              className="group flex items-start gap-3 p-4 rounded-xl hover:bg-brand-card/30 transition-all duration-300"
             >
               {/* Icon */}
-              <div className="text-brand-violet group-hover:text-brand-lilac transition-colors">
+              <div className="text-brand-violet group-hover:text-brand-lilac transition-colors mt-1">
                 {iconMap[metric.icon] ?? <Zap size={24} />}
               </div>
 
-              {/* Value */}
-              <div className="font-heading font-bold text-3xl md:text-4xl text-purple-gradient">
-                <AnimatedNumber value={metric.value} />
+              {/* Stacked Value and Label */}
+              <div className="flex flex-col">
+                <div className="font-heading font-bold text-3xl md:text-4xl text-purple-gradient leading-none">
+                  <AnimatedNumber value={metric.value} />
+                </div>
+                <p className="font-body text-xs text-brand-gray mt-1 leading-snug">
+                  {metric.label}
+                </p>
               </div>
-
-              {/* Label */}
-              <p className="font-body text-xs text-brand-gray leading-snug text-center md:text-left">
-                {metric.label}
-              </p>
             </motion.div>
           ))}
         </div>
