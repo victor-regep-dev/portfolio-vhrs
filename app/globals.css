@@ -1,0 +1,362 @@
+@import "tailwindcss";
+
+@theme {
+  --font-space-grotesk: 'Space Grotesk', system-ui, sans-serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
+/* ============================================================
+   GLOBAL RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: #050507;
+  color: #ffffff;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B12;
+}
+::-webkit-scrollbar-thumb {
+  background: #8A2BFF;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A855F7;
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background: rgba(138, 43, 255, 0.4);
+  color: #ffffff;
+}
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid #8A2BFF;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================ */
+:root {
+  --color-black: #050507;
+  --color-graphite: #0B0B12;
+  --color-dark: #0D0D18;
+  --color-card: #0F0F1A;
+  --color-purple: #8A2BFF;
+  --color-violet: #A855F7;
+  --color-lilac: #C084FC;
+  --color-gray: #B8B8C8;
+  --color-white: #ffffff;
+  --color-border: rgba(138, 43, 255, 0.2);
+  --color-border-hover: rgba(168, 85, 247, 0.5);
+
+  --shadow-glow-sm: 0 0 15px rgba(138, 43, 255, 0.25);
+  --shadow-glow-md: 0 0 30px rgba(138, 43, 255, 0.3);
+  --shadow-glow-lg: 0 0 60px rgba(138, 43, 255, 0.35);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(138, 43, 255, 0.15);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(168, 85, 247, 0.4), 0 0 30px rgba(138, 43, 255, 0.2);
+
+  --radius-card: 16px;
+  --radius-badge: 999px;
+}
+
+/* ============================================================
+   BACKGROUND GRID TEXTURE
+   ============================================================ */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(138, 43, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(138, 43, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================================
+   GLASSMORPHISM
+   ============================================================ */
+.glass {
+  background: rgba(15, 15, 26, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(138, 43, 255, 0.2);
+}
+
+.glass-header {
+  background: rgba(5, 5, 7, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(138, 43, 255, 0.15);
+}
+
+/* ============================================================
+   GLOW CARD
+   ============================================================ */
+.glow-card {
+  background: rgba(15, 15, 26, 0.8);
+  border: 1px solid rgba(138, 43, 255, 0.2);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(138, 43, 255, 0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.glow-card:hover {
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================
+   PURPLE GRADIENT TEXT
+   ============================================================ */
+.text-purple-gradient {
+  background: linear-gradient(135deg, #8A2BFF 0%, #C084FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(138, 43, 255, 0.5);
+}
+
+/* ============================================================
+   NEON BORDER ANIMATION
+   ============================================================ */
+.neon-border {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#0F0F1A, #0F0F1A) padding-box,
+    linear-gradient(135deg, #8A2BFF, #A855F7, #8A2BFF) border-box;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(138, 43, 255, 0.3); }
+  50% { box-shadow: 0 0 50px rgba(138, 43, 255, 0.6), 0 0 80px rgba(168, 85, 247, 0.2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes particle-float {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-80vh) translateX(30px); opacity: 0; }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 9s ease-in-out infinite; }
+.animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+/* ============================================================
+   GRADIENT BACKGROUNDS
+   ============================================================ */
+.bg-purple-glow {
+  background: radial-gradient(ellipse at center, rgba(138, 43, 255, 0.15) 0%, transparent 70%);
+}
+
+.bg-hero-glow {
+  background: radial-gradient(ellipse at 70% 50%, rgba(138, 43, 255, 0.12) 0%, transparent 60%);
+}
+
+/* ============================================================
+   SECTION SPACING
+   ============================================================ */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   HERO CODE ANIMATION
+   ============================================================ */
+.code-char {
+  opacity: 0;
+  animation: fade-char 0.05s ease-out forwards;
+}
+
+@keyframes fade-char {
+  to { opacity: 1; }
+}
+
+/* ============================================================
+   TECH STACK ICON CARD
+   ============================================================ */
+.tech-card {
+  background: rgba(15, 15, 26, 0.7);
+  border: 1px solid rgba(138, 43, 255, 0.15);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.tech-card:hover,
+.tech-card.active {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 20px rgba(138, 43, 255, 0.2);
+  background: rgba(138, 43, 255, 0.08);
+}
+
+/* ============================================================
+   PROCESS TIMELINE
+   ============================================================ */
+.process-line {
+  background: linear-gradient(180deg, #8A2BFF 0%, rgba(138, 43, 255, 0.1) 100%);
+}
+
+/* ============================================================
+   BUTTON BASE STYLES
+   ============================================================ */
+.btn-primary {
+  background: linear-gradient(135deg, #8A2BFF 0%, #A855F7 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 20px rgba(138, 43, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 35px rgba(138, 43, 255, 0.5);
+  filter: brightness(1.1);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #A855F7;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(138, 43, 255, 0.1);
+  border-color: rgba(168, 85, 247, 0.7);
+  box-shadow: 0 0 20px rgba(138, 43, 255, 0.2);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #1DAA53 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.4);
+  filter: brightness(1.05);
+}
+
+.btn-linkedin {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-linkedin:hover {
+  background: rgba(0, 119, 181, 0.15);
+  border-color: rgba(0, 119, 181, 0.5);
+}
